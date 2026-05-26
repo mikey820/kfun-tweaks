@@ -1,0 +1,61 @@
+name: Build IPA
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Build XPF
+        run: |
+          cd darksword-kexploit-fun/XPF
+          make all
+
+      - name: Archive (unsigned)
+        run: |
+          xcodebuild archive \
+            -project darksword-kexploit-fun.xcodeproj \
+            -scheme darksword-kexploit-fun \
+            -configuration Release \
+            -archivePath "$PWD/build/kfun.xcarchive" \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            DEVELOPMENT_TEAM="" \
+            ENABLE_USER_SCRIPT_SANDBOXING=NO \
+            | xcpretty || true
+
+      - name: Package IPA
+        run: |
+          mkdir -p Payload
+          cp -r build/kfun.xcarchive/Products/Applications/kfun.app Payload/kfun.app
+          zip -r kfun.ipa Payload
+          rm -rf Payload
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: kfun-ipa
+          path: kfun.ipa
+
+      - name: Publish to Releases
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: Latest Build
+          body: |
+            Unsigned IPA — sideload with AltStore, Sideloadly, or similar.
+            Built from commit ${{ github.sha }}
+          files: kfun.ipa
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
