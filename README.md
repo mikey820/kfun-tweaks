@@ -47,7 +47,6 @@ GitHub Actions builds a signed-off unsigned IPA on every push to `main`.
 ## Credits
 
 - [wh1te4ever](https://github.com/wh1te4ever) — DarkSword kernel exploit & 5 icon dock / hide labels
-- [AlexDavitoiu](https://github.com/AlexDavitoiu) — kexploit-fun fork
 - [kolbicz](https://github.com/kolbicz) — DarkSword-Tweaks (SpringBoard tweak implementations)
 - [opa334](https://github.com/opa334) — kernel exploit primitives
 - [zeroxjf](https://github.com/zeroxjf) — XPF patchfinder
