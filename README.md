@@ -4,7 +4,7 @@ iOS SpringBoard customization app powered by the [DarkSword kernel exploit](http
 
 ## Supported devices
 
-All iOS / iPadOS **17.0 – 26.0.1** devices, except A19 / M5.
+All iOS / iPadOS **17.0 – 18.7.6** devices, except A19 / M5.
 
 ## Tweaks
 
