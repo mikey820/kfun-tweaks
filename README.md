@@ -28,7 +28,7 @@ Parametric tweaks (scale, grid size, animation speed) have sliders in the Settin
 ## Install
 
 1. Download `phantom.ipa` from [Releases](https://github.com/mikey820/phantom-tweaks/releases/latest)
-2. Sideload with **AltStore**, **Sideloadly**, **TrollStore**, or any IPA installer
+2. Sideload with **AltStore**, **Sideloadly**, **SideStore**, or any IPA installer
 3. Open the app — the exploit runs automatically on launch
 4. Go to the **Settings** tab to enable tweaks
 
@@ -46,7 +46,7 @@ GitHub Actions builds a signed-off unsigned IPA on every push to `main`.
 
 ## Credits
 
-- [wh1te4ever](https://github.com/wh1te4ever) — DarkSword kernel exploit & 5 icon dock / hide labels
-- [kolbicz](https://github.com/kolbicz) — DarkSword-Tweaks (SpringBoard tweak implementations)
+- [wh1te4ever](https://github.com/wh1te4ever) — DarkSword kernel exploit implementation
+- [kolbicz](https://github.com/kolbicz) — made some of the tweaks
 - [opa334](https://github.com/opa334) — kernel exploit primitives
 - [zeroxjf](https://github.com/zeroxjf) — XPF patchfinder
