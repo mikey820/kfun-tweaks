@@ -15,6 +15,9 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Install ldid
+        run: brew install ldid
+
       - name: Build XPF
         run: |
           cd darksword-kexploit-fun/XPF
